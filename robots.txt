@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://pit-terapy.vercel.app/sitemap.xml
