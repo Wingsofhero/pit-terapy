@@ -569,7 +569,7 @@ button {
   inset: 0;
   background:
     linear-gradient(180deg, rgba(10, 10, 10, 0.18) 0%, rgba(10, 10, 10, 0.96) 75%),
-    url("/images/therapy-01.jpg") center / cover;
+    url("/images/pit-terapy-therapy-room.webp") center / cover;
   content: "";
   opacity: 0.28;
   transform: scale(1.01);
@@ -579,7 +579,7 @@ button {
 .service-card--movement::before {
   background:
     linear-gradient(180deg, rgba(10, 10, 10, 0.38) 0%, rgba(10, 10, 10, 0.97) 76%),
-    url("/images/therapy-04.jpg") center / cover;
+    url("/images/pit-terapy-gym-strength.webp") center / cover;
 }
 
 .service-card:hover::before {
