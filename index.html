@@ -177,9 +177,8 @@
       </section>
 
       <section class="statement section" id="pristup">
-        <div class="section-index reveal">01</div>
         <div class="statement__content">
-          <p class="eyebrow reveal">Telo nie je šablóna</p>
+          <p class="eyebrow statement__eyebrow reveal">Telo nie je šablóna</p>
           <h2 class="display-heading reveal">
             Nie univerzálny postup.<br />
             <em>Prístup šitý na telo.</em>
@@ -198,7 +197,6 @@
       </section>
 
       <section class="offer section" id="moznosti">
-        <div class="section-index reveal">02</div>
         <div class="offer__intro">
           <p class="eyebrow reveal">Dve možnosti, jeden zámer</p>
           <h2 class="display-heading reveal">
@@ -209,7 +207,6 @@
 
         <article class="service-card service-card--therapy reveal">
           <div class="service-card__topline">
-            <span>01</span>
             <span>75 min</span>
           </div>
           <div class="service-card__body">
@@ -252,7 +249,6 @@
 
         <article class="service-card service-card--movement reveal">
           <div class="service-card__topline">
-            <span>02</span>
             <span>60 min</span>
           </div>
           <div class="service-card__body">
@@ -392,31 +388,44 @@
           </div>
         </div>
 
-        <div class="reviews__grid">
-          <blockquote class="review-card reveal">
-            <div class="review-card__stars" aria-hidden="true">★★★★★</div>
-            <p>„Kvalitná služba, osobný prístup, príjemný a čistý priestor. Dobrá dostupnosť.“</p>
-            <footer>
-              <span class="avatar">MN</span>
-              <div><strong>Martin Nosko</strong><span>Google recenzia</span></div>
-            </footer>
-          </blockquote>
-          <blockquote class="review-card reveal">
-            <div class="review-card__stars" aria-hidden="true">★★★★★</div>
-            <p>„Veľmi si vážim individuálny prístup. Dostala som aj rady a cviky na domácu úlohu.“</p>
-            <footer>
-              <span class="avatar">EF</span>
-              <div><strong>Erika Filípková</strong><span>Google recenzia</span></div>
-            </footer>
-          </blockquote>
-          <blockquote class="review-card reveal">
-            <div class="review-card__stars" aria-hidden="true">★★★★★</div>
-            <p>„Profesionálny prístup, príjemné prostredie a bez problémov s parkovaním.“</p>
-            <footer>
-              <span class="avatar">MC</span>
-              <div><strong>Miriam Cakova</strong><span>Google recenzia</span></div>
-            </footer>
-          </blockquote>
+        <div class="reviews__carousel reveal" data-carousel aria-label="Recenzie klientov">
+          <div class="reviews__controls">
+            <button type="button" data-carousel-prev aria-label="Predchádzajúca recenzia">←</button>
+            <span class="reviews__counter" aria-live="polite">
+              <strong data-carousel-current>01</strong>
+              <span>/ 03</span>
+            </span>
+            <button type="button" data-carousel-next aria-label="Nasledujúca recenzia">→</button>
+          </div>
+
+          <div class="reviews__viewport" data-carousel-viewport tabindex="0">
+            <div class="reviews__track">
+              <blockquote class="review-card">
+                <div class="review-card__stars" aria-hidden="true">★★★★★</div>
+                <p>„Kvalitná služba, osobný prístup, príjemný a čistý priestor. Dobrá dostupnosť.“</p>
+                <footer>
+                  <span class="avatar">MN</span>
+                  <div><strong>Martin Nosko</strong><span>Google recenzia</span></div>
+                </footer>
+              </blockquote>
+              <blockquote class="review-card">
+                <div class="review-card__stars" aria-hidden="true">★★★★★</div>
+                <p>„Veľmi si vážim individuálny prístup. Dostala som aj rady a cviky na domácu úlohu.“</p>
+                <footer>
+                  <span class="avatar">EF</span>
+                  <div><strong>Erika Filípková</strong><span>Google recenzia</span></div>
+                </footer>
+              </blockquote>
+              <blockquote class="review-card">
+                <div class="review-card__stars" aria-hidden="true">★★★★★</div>
+                <p>„Profesionálny prístup, príjemné prostredie a bez problémov s parkovaním.“</p>
+                <footer>
+                  <span class="avatar">MC</span>
+                  <div><strong>Miriam Cakova</strong><span>Google recenzia</span></div>
+                </footer>
+              </blockquote>
+            </div>
+          </div>
         </div>
 
         <a
@@ -532,7 +541,7 @@
       <div class="site-footer__bottom">
         <span>© <span data-year></span> Marek Pittner PiT-Terapy</span>
         <span>Všetky práva vyhradené</span>
-        <span>Webdesign &amp; realizácia: <a href="https://github.com/Wingsofhero" target="_blank" rel="noopener">Wings of Hero</a></span>
+        <a href="https://www.herowings.sk/" target="_blank" rel="noopener">Herowings</a>
       </div>
     </footer>
 

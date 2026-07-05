@@ -3,6 +3,7 @@ const menuButton = document.querySelector("[data-menu-button]");
 const mobileMenu = document.querySelector("[data-mobile-menu]");
 const mobileLinks = mobileMenu?.querySelectorAll("a");
 const year = document.querySelector("[data-year]");
+const carousel = document.querySelector("[data-carousel]");
 
 const setHeaderState = () => {
   header?.classList.toggle("is-scrolled", window.scrollY > 24);
@@ -34,6 +35,86 @@ if (year) {
 
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 const revealElements = document.querySelectorAll(".reveal");
+
+if (carousel) {
+  const viewport = carousel.querySelector("[data-carousel-viewport]");
+  const cards = [...carousel.querySelectorAll(".review-card")];
+  const previous = carousel.querySelector("[data-carousel-prev]");
+  const next = carousel.querySelector("[data-carousel-next]");
+  const current = carousel.querySelector("[data-carousel-current]");
+  let activeIndex = 0;
+  let direction = 1;
+  let autoPlay;
+  let scrollSync;
+
+  const updateCounter = () => {
+    if (current) current.textContent = String(activeIndex + 1).padStart(2, "0");
+  };
+
+  const moveTo = (index, smooth = true) => {
+    activeIndex = Math.max(0, Math.min(index, cards.length - 1));
+    viewport?.scrollTo({
+      left: cards[activeIndex].offsetLeft,
+      behavior: smooth && !reducedMotion ? "smooth" : "auto",
+    });
+    updateCounter();
+  };
+
+  const moveBy = (step) => {
+    let nextIndex = activeIndex + step;
+    if (nextIndex < 0) nextIndex = cards.length - 1;
+    if (nextIndex >= cards.length) nextIndex = 0;
+    direction = step < 0 ? -1 : 1;
+    moveTo(nextIndex);
+  };
+
+  const stopAutoPlay = () => window.clearInterval(autoPlay);
+  const startAutoPlay = () => {
+    stopAutoPlay();
+    if (reducedMotion || cards.length < 2) return;
+    autoPlay = window.setInterval(() => {
+      if (activeIndex === cards.length - 1) direction = -1;
+      if (activeIndex === 0) direction = 1;
+      moveTo(activeIndex + direction);
+    }, 6000);
+  };
+
+  previous?.addEventListener("click", () => {
+    moveBy(-1);
+    startAutoPlay();
+  });
+  next?.addEventListener("click", () => {
+    moveBy(1);
+    startAutoPlay();
+  });
+  carousel.addEventListener("pointerenter", stopAutoPlay);
+  carousel.addEventListener("pointerleave", startAutoPlay);
+  viewport?.addEventListener(
+    "scroll",
+    () => {
+      window.clearTimeout(scrollSync);
+      scrollSync = window.setTimeout(() => {
+        activeIndex = cards.reduce((nearest, card, index) => {
+          const currentDistance = Math.abs(cards[nearest].offsetLeft - viewport.scrollLeft);
+          const nextDistance = Math.abs(card.offsetLeft - viewport.scrollLeft);
+          return nextDistance < currentDistance ? index : nearest;
+        }, 0);
+        updateCounter();
+      }, 120);
+    },
+    { passive: true },
+  );
+  carousel.addEventListener("focusin", stopAutoPlay);
+  carousel.addEventListener("focusout", startAutoPlay);
+  document.addEventListener("visibilitychange", () => {
+    if (document.hidden) stopAutoPlay();
+    else startAutoPlay();
+  });
+  window.addEventListener("resize", () => moveTo(activeIndex, false));
+
+  updateCounter();
+  startAutoPlay();
+}
 
 if (reducedMotion || !("IntersectionObserver" in window)) {
   revealElements.forEach((element) => element.classList.add("is-visible"));

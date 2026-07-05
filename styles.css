@@ -493,13 +493,6 @@ button {
   padding-block: var(--section-space);
 }
 
-.section-index {
-  color: #65635d;
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 0.18em;
-}
-
 .display-heading {
   margin: 0;
   font-size: clamp(46px, 6.3vw, 98px);
@@ -509,8 +502,6 @@ button {
 }
 
 .statement {
-  display: grid;
-  grid-template-columns: 1fr 11fr;
   border-bottom: 1px solid var(--line);
 }
 
@@ -523,6 +514,11 @@ button {
 .statement__content .eyebrow {
   grid-column: 1 / -1;
   margin-bottom: 0;
+}
+
+.statement__eyebrow {
+  font-size: 13px;
+  letter-spacing: 0.2em;
 }
 
 .statement__copy {
@@ -545,11 +541,6 @@ button {
   grid-template-columns: 0.65fr repeat(2, minmax(0, 1fr));
   gap: 22px;
   align-items: stretch;
-}
-
-.offer > .section-index {
-  grid-column: 1 / -1;
-  margin-bottom: 8px;
 }
 
 .offer__intro {
@@ -605,7 +596,7 @@ button {
 
 .service-card__topline {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   color: #a9a69f;
   font-size: 10px;
   font-weight: 600;
@@ -796,7 +787,7 @@ button {
   align-items: center;
   width: 100%;
   padding-inline: max(32px, calc((100vw - 1440px) / 2));
-  background: var(--paper);
+  background: #e4e2dc;
   color: var(--ink);
 }
 
@@ -955,21 +946,84 @@ button {
   font-size: 10px;
 }
 
-.reviews__grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 18px;
+.reviews__carousel {
   margin-top: 68px;
+}
+
+.reviews__controls {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.reviews__controls button {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: transparent;
+  color: var(--white);
+  cursor: pointer;
+  transition: border-color 0.2s ease, background 0.2s ease, color 0.2s ease;
+}
+
+.reviews__controls button:hover,
+.reviews__controls button:focus-visible {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: var(--ink);
+}
+
+.reviews__counter {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 4px;
+  min-width: 62px;
+  color: #706d66;
+  font-size: 10px;
+  letter-spacing: 0.08em;
+}
+
+.reviews__counter strong {
+  color: var(--white);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.reviews__viewport {
+  width: 100%;
+  overflow-x: auto;
+  scrollbar-width: none;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  touch-action: pan-x;
+}
+
+.reviews__viewport::-webkit-scrollbar {
+  display: none;
+}
+
+.reviews__track {
+  display: flex;
+  gap: 18px;
 }
 
 .review-card {
   display: flex;
+  flex: 0 0 calc((100% - 18px) / 2.18);
   flex-direction: column;
   min-height: 360px;
   margin: 0;
   padding: 30px;
   border: 1px solid var(--line);
   background: #10100e;
+  scroll-snap-align: start;
 }
 
 .review-card__stars {
@@ -1349,20 +1403,33 @@ button {
   }
 
   .hero__content {
+    display: contents;
     padding-right: 0;
   }
 
+  .hero__content > .eyebrow {
+    order: 1;
+  }
+
   .hero h1 {
+    order: 2;
     font-size: clamp(58px, 17vw, 108px);
   }
 
   .hero__lead {
+    order: 3;
     margin-top: 30px;
   }
 
   .hero__visual {
+    order: 4;
     width: 76%;
-    margin-top: 70px;
+    margin-top: 46px;
+    margin-bottom: 54px;
+  }
+
+  .hero__actions {
+    order: 5;
   }
 
   .hero__image-wrap {
@@ -1387,14 +1454,6 @@ button {
 
   .trust-strip__item:nth-child(-n + 2) {
     border-bottom: 1px solid var(--line);
-  }
-
-  .statement {
-    grid-template-columns: 1fr;
-  }
-
-  .statement > .section-index {
-    margin-bottom: 52px;
   }
 
   .statement__content {
@@ -1435,11 +1494,8 @@ button {
     gap: 28px;
   }
 
-  .reviews__grid {
-    grid-template-columns: 1fr;
-  }
-
   .review-card {
+    flex-basis: min(78vw, 480px);
     min-height: 310px;
   }
 
@@ -1471,6 +1527,10 @@ button {
   .eyebrow {
     margin-bottom: 22px;
     font-size: 9px;
+  }
+
+  .statement__eyebrow {
+    font-size: 11px;
   }
 
   .display-heading {
@@ -1507,7 +1567,8 @@ button {
 
   .hero__visual {
     width: 88%;
-    margin-top: 52px;
+    margin-top: 42px;
+    margin-bottom: 48px;
   }
 
   .hero__badge {
@@ -1530,10 +1591,6 @@ button {
 
   .trust-strip__number {
     font-size: 21px;
-  }
-
-  .statement > .section-index {
-    margin-bottom: 40px;
   }
 
   .offer {
@@ -1621,6 +1678,7 @@ button {
   }
 
   .review-card {
+    flex-basis: calc(100vw - 54px);
     min-height: 290px;
     padding: 24px;
   }
@@ -1692,5 +1750,9 @@ button {
   .reveal {
     opacity: 1;
     transform: none;
+  }
+
+  .reviews__viewport {
+    scroll-behavior: auto;
   }
 }
