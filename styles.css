@@ -354,7 +354,8 @@ button {
   display: inline-flex;
   align-items: center;
   gap: 12px;
-  padding-bottom: 5px;
+  min-height: 44px;
+  padding: 8px 0 5px;
   border-bottom: 1px solid currentColor;
   color: #d2d0c9;
   font-size: 13px;
@@ -700,23 +701,31 @@ button {
 }
 
 .circle-link {
-  display: grid;
-  place-items: center;
-  width: 58px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: auto;
+  min-width: 58px;
   height: 58px;
-  border-radius: 50%;
+  padding: 0 12px;
+  border-radius: 999px;
   background: var(--accent);
   color: var(--ink);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
   transition: transform 0.25s ease, background 0.25s ease;
 }
 
 .circle-link:hover {
   background: var(--white);
-  transform: rotate(7deg) scale(1.05);
+  transform: translateY(-2px);
 }
 
 .circle-link svg {
-  width: 24px;
+  width: 18px;
   fill: none;
   stroke: currentColor;
   stroke-width: 1.4;
@@ -1608,6 +1617,18 @@ button {
   .service-card {
     min-height: 610px;
     padding: 22px;
+  }
+
+  .service-card--therapy::before {
+    background:
+      linear-gradient(180deg, rgba(10, 10, 10, 0.18) 0%, rgba(10, 10, 10, 0.96) 75%),
+      url("/images/pit-terapy-therapy-room-800.webp") center / cover;
+  }
+
+  .service-card--movement::before {
+    background:
+      linear-gradient(180deg, rgba(10, 10, 10, 0.38) 0%, rgba(10, 10, 10, 0.97) 76%),
+      url("/images/pit-terapy-gym-strength-800.webp") center / cover;
   }
 
   .service-card h3 {

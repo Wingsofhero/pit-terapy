@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Individuálna terapia na odstránenie bolesti a cvičenie v Malackách. Marek Pittner, Pezinská 1098/7. Rezervujte si termín online."
+      content="Individuálna terapia zameraná na zmiernenie bolesti a cvičenie v Malackách. Marek Pittner, Pezinská 1098/7. Rezervujte si termín online."
     />
     <meta name="theme-color" content="#0a0a0a" />
     <meta property="og:title" content="PiT-Terapy | Terapia a cvičenie v Malackách" />
@@ -15,7 +15,12 @@
     />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="sk_SK" />
-    <meta property="og:image" content="/images/pit-terapy-therapy-room.webp" />
+    <meta property="og:url" content="https://pit-terapy.vercel.app/" />
+    <meta property="og:image" content="https://pit-terapy.vercel.app/images/pit-terapy-therapy-room.webp" />
+    <meta property="og:image:width" content="1600" />
+    <meta property="og:image:height" content="2133" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="canonical" href="https://pit-terapy.vercel.app/" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -31,9 +36,10 @@
         "@context": "https://schema.org",
         "@type": "HealthAndBeautyBusiness",
         "name": "Marek Pittner PiT-Terapy",
+        "url": "https://pit-terapy.vercel.app/",
         "telephone": "+421907576196",
         "priceRange": "€€",
-        "image": "/images/pit-terapy-therapy-room.webp",
+        "image": "https://pit-terapy.vercel.app/images/pit-terapy-therapy-room.webp",
         "email": "marecekpittner@gmail.com",
         "address": {
           "@type": "PostalAddress",
@@ -46,11 +52,6 @@
           "@type": "GeoCoordinates",
           "latitude": 48.4328463,
           "longitude": 17.0270749
-        },
-        "aggregateRating": {
-          "@type": "AggregateRating",
-          "ratingValue": "5.0",
-          "reviewCount": "26"
         },
         "sameAs": [
           "https://www.google.com/maps/place/Marek+Pittner+PiT-Terapy/@48.4328463,17.0270749,575m/data=!3m2!1e3!4b1!4m6!3m5!1s0x476cc3dafc1ba3e7:0x6655d9a499f484e5!8m2!3d48.4328463!4d17.0270749!16s%2Fg%2F11y8t3chw6",
@@ -140,14 +141,21 @@
           <div class="hero__image-wrap">
             <img
               src="/images/pit-terapy-therapy-room.webp"
+              srcset="
+                /images/pit-terapy-therapy-room-800.webp 800w,
+                /images/pit-terapy-therapy-room.webp 1600w
+              "
+              sizes="(max-width: 860px) 88vw, 50vw"
               alt="Terapeutická miestnosť PiT-Terapy v Malackách"
+              width="1600"
+              height="2133"
               fetchpriority="high"
             />
           </div>
           <div class="hero__badge">
             <span class="hero__badge-score">5,0</span>
             <span class="stars" aria-label="5 z 5 hviezdičiek">★★★★★</span>
-            <span>Google · 26 recenzií</span>
+            <span>Recenzie na Google</span>
           </div>
         </div>
 
@@ -211,9 +219,9 @@
             <span>75 min</span>
           </div>
           <div class="service-card__body">
-            <h3>Terapia na odstránenie bolesti</h3>
+            <h3>Terapia zameraná na zmiernenie bolesti</h3>
             <p>
-              Individuálna terapia zameraná na odstránenie bolesti. Masáže, mäkké
+              Individuálna terapia zameraná na zmiernenie bolesti. Masáže, mäkké
               techniky, trigger points, bankovanie a ďalšie terapeutické techniky
               kombinujem podľa toho, čo vaše telo práve potrebuje.
             </p>
@@ -227,11 +235,11 @@
           <div class="service-card__footer">
             <div class="price">
               <div class="price__item">
-                <span>Aktuálne</span>
+                <span>Do 31. 7. 2026</span>
                 <strong>39 €</strong>
               </div>
               <div class="price__item price__item--future">
-                <span>Od augusta</span>
+                <span>Od 1. 8. 2026</span>
                 <strong>45 €</strong>
               </div>
             </div>
@@ -240,8 +248,9 @@
               href="https://services.bookio.com/marek-pittner-pitterapy/widget?lang=sk"
               target="_blank"
               rel="noopener"
-              aria-label="Rezervovať terapiu na odstránenie bolesti"
+              aria-label="Rezervovať terapiu zameranú na zmiernenie bolesti"
             >
+              <span>Rezervovať</span>
               <svg viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M6 18 18 6M8 6h10v10" />
               </svg>
@@ -281,6 +290,7 @@
               rel="noopener"
               aria-label="Rezervovať individuálne cvičenie"
             >
+              <span>Rezervovať</span>
               <svg viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M6 18 18 6M8 6h10v10" />
               </svg>
@@ -323,7 +333,18 @@
 
       <section class="process section">
         <div class="process__visual reveal">
-          <img src="/images/pit-terapy-gym-detail.webp" alt="Fitness časť pracoviska PiT-Terapy" loading="lazy" />
+          <img
+            src="/images/pit-terapy-gym-detail.webp"
+            srcset="
+              /images/pit-terapy-gym-detail-800.webp 800w,
+              /images/pit-terapy-gym-detail.webp 1600w
+            "
+            sizes="(max-width: 860px) 100vw, 50vw"
+            alt="Fitness časť pracoviska PiT-Terapy"
+            width="1600"
+            height="2133"
+            loading="lazy"
+          />
           <div class="process__visual-label">
             <span>Marek Pittner</span>
             <span>PiT-Terapy</span>
@@ -370,10 +391,32 @@
           </h2>
         </div>
         <figure class="gallery__image gallery__image--wide reveal">
-          <img src="/images/pit-terapy-therapy-room.webp" alt="Terapeutický priestor PiT-Terapy" loading="lazy" />
+          <img
+            src="/images/pit-terapy-gym-strength.webp"
+            srcset="
+              /images/pit-terapy-gym-strength-800.webp 800w,
+              /images/pit-terapy-gym-strength.webp 1600w
+            "
+            sizes="(max-width: 860px) 100vw, 66vw"
+            alt="Silová časť priestoru PiT-Terapy"
+            width="1600"
+            height="2133"
+            loading="lazy"
+          />
         </figure>
         <figure class="gallery__image gallery__image--portrait reveal">
-          <img src="/images/pit-terapy-gym-mobility.webp" alt="Priestor na individuálne cvičenie v PiT-Terapy" loading="lazy" />
+          <img
+            src="/images/pit-terapy-gym-mobility.webp"
+            srcset="
+              /images/pit-terapy-gym-mobility-800.webp 800w,
+              /images/pit-terapy-gym-mobility.webp 1600w
+            "
+            sizes="(max-width: 860px) 100vw, 33vw"
+            alt="Priestor na individuálne cvičenie v PiT-Terapy"
+            width="1600"
+            height="2133"
+            loading="lazy"
+          />
         </figure>
       </section>
 
@@ -387,7 +430,7 @@
           <div class="reviews__score reveal">
             <strong>5,0</strong>
             <span class="stars" aria-label="5 z 5 hviezdičiek">★★★★★</span>
-            <span>26 recenzií na Google</span>
+            <span>Recenzie na Google</span>
           </div>
         </div>
 
