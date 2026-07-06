@@ -1083,7 +1083,10 @@ button {
   font-size: 9px;
 }
 
-.reviews__link {
+.reviews__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 28px;
   margin-top: 36px;
 }
 
